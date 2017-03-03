@@ -1,0 +1,42 @@
+{
+  "name": "octopus-deploy-release-promoter",
+  "version": "0.1.0",
+  "description": "npm package for helping with deploying releases to different environments",
+  "main": "index.js",
+  "engines": ">= 4.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vernak2539/octopus-deploy-release-promoter.git"
+  },
+  "keywords": [
+    "octopus",
+    "deploy",
+    "promote",
+    "release"
+  ],
+  "author": "Alex Vernacchia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vernak2539/octopus-deploy-release-promoter/issues"
+  },
+  "homepage": "https://github.com/vernak2539/octopus-deploy-release-promoter#readme",
+  "dependencies": {
+    "bluebird": "~2.9.24",
+    "octopus-deploy": "^2.0.0"
+  },
+  "devDependencies": {
+    "docma": "^1.4.0",
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-util": "^3.0.7",
+    "gulp-workflow": "^1.1.5"
+  }
+}
