@@ -1,0 +1,30 @@
+{
+  "src": [
+    {
+      "ocotpus-release-promoter": "./index.js"
+    },
+    "./README.md"
+  ],
+  "dest": "./docs",
+  "app": {
+    "title": "Octopus Release Promoter",
+    "entrance": "content:readme",
+    "server": "github",
+    "routing": "query"
+  },
+  "template": {
+    "path": "default",
+    "options": {
+      "navItems": [
+        {
+          "label": "Overview",
+          "href": "./"
+        },
+        {
+          "label": "Documentation",
+          "href": "?api=ocotpus-release-promoter"
+        }
+      ]
+    }
+  }
+}

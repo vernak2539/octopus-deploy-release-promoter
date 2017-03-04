@@ -1,15 +1,9 @@
 const Docma = require('docma');
+const docmaConfig = require('./config/docs.config.json');
 
-
-module.exports = (workflow, gulp, $, config) => {
+module.exports = (workflow) => {
   workflow.subtask('generateDocs', () => {
     return Docma.create()
-      .build({
-        src: [
-          './index.js',
-          './README.md'
-        ],
-        dest: './docs'
-      });
+      .build(docmaConfig);
   });
 };

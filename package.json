@@ -5,7 +5,7 @@
   "main": "index.js",
   "engines": ">= 4.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/gulp lintAndTest"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "octopus-deploy": "^2.0.0"
   },
   "devDependencies": {
+    "del": "^2.2.2",
     "docma": "^1.4.0",
     "eslint": "^3.7.0",
     "eslint-config-airbnb": "^12.0.0",
@@ -36,7 +37,11 @@
     "eslint-plugin-react": "^6.3.0",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^4.0.1",
     "gulp-util": "^3.0.7",
-    "gulp-workflow": "^1.1.5"
+    "gulp-workflow": "^1.1.5",
+    "mocha": "^3.2.0",
+    "proxyquire": "^1.7.11",
+    "sinon": "^1.17.7"
   }
 }
