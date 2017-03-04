@@ -10,7 +10,8 @@
     "title": "Octopus Release Promoter",
     "entrance": "content:readme",
     "server": "github",
-    "routing": "query"
+    "routing": "query",
+    "base": "/octopus-deploy-release-promoter",
   },
   "template": {
     "path": "default",
