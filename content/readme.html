@@ -1,0 +1,77 @@
+
+<html><head></head><body><h1 id="octopus-deploy-release-promoter">Octopus Deploy Release Promoter</h1>
+<hr />
+<p>This module aims to make Octopus release promotion easier.</p>
+<pre><code class="lang-bash">npm install --save octopus-deploy-release-promoter
+
+# or
+
+yarn add octopus-deploy-release-promoter
+</code></pre>
+<p>In Octopus Deploy, releases are created and then deployed to an environment. If your
+lifecycle has multiple environments, you may see a button in the UI saying "Promote release to {environment}...".</p>
+<p>What does this actually mean? There's nothing special to it, which confused me at first. It's just deploying the same release to a different environment.</p>
+<p>Pretty simple eh?</p>
+<h2 id="when-to-use-this-">When to use this?</h2>
+<p>Let's say you have a project that has a lifecycle with different environments.
+You've created a release in your "QA/Continuous" environment, but now it's time to promote
+it to the "Stable/Production" environment.</p>
+<p>You don't want to have to do the manual work of finding the latest release ID every time, inserting it, and then running a script. You
+just want to deploy the latest release in your project to this new environment.</p>
+<p>All you'll need to do is below:</p>
+<pre><code class="lang-js">const OctopusReleasePromoter = require('octopus-deploy-release-promoter');
+
+const config = {
+    host: 'https://deploy.mycompany.com',
+    apiKey: 'ABC-123' // This is used to authorize against the REST Api
+};
+
+const promoter = new OctopusReleasePromoter(config);
+
+// this will find the latest release on your project
+// and deploy it to the environment provided
+promoter.promoteRelease({
+  environmentId: 'Environment-101',
+  projectId: 'project-id-or-slug'
+});
+</code></pre>
+<h2 id="when-not-to-use-this-">When not to use this?</h2>
+<p>If you have a release ID and an environment ID, and all you're looking to do is deploy that release to an new environment,
+I suggest using this <a href="https://www.npmjs.com/package/octopus-deploy">octopus depoy npm package</a>.</p>
+<p>All you'll need to do is below:</p>
+<pre><code class="lang-js">const OctoDeployApi = require('octopus-deploy');
+
+const environmentId = 'Environment-101';
+const releaseId = 'Release-101';
+const config = {
+    host: 'https://deploy.mycompany.com',
+    apiKey: 'ABC-123' // This is used to authorize against the REST Api
+};
+
+const client = new OctoDeployApi(config);
+
+client.deployment.create(environmentId, releaseId);
+</code></pre>
+<p>This can be done using this module as well. It would look like below:</p>
+<pre><code class="lang-js">const OctopusReleasePromoter = require('octopus-deploy-release-promoter');
+
+const config = {
+    host: 'https://deploy.mycompany.com',
+    apiKey: 'ABC-123' // This is used to authorize against the REST Api
+};
+
+const promoter = new OctopusReleasePromoter(config);
+
+// this will find the latest release on your project
+// and deploy it to the environment provided
+promoter.promoteRelease({
+  environmentId: 'Environment-101',
+  releaseId: 'Release-101'
+});
+</code></pre>
+<h2 id="next-feature">Next Feature</h2>
+<p>At the moment, this will deploy the latest release even if it's currently on the
+designated environment. I'm hoping to add a feature that will figure out if
+the latest release is already on that environment or not. If it is, then we will
+give a nice little message that it's already that and not trigger a deployment.</p>
+</body></html>
