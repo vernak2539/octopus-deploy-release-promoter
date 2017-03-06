@@ -5,7 +5,7 @@
     },
     "./README.md"
   ],
-  "dest": "./docs",
+  "dest": "../odrp-docs",
   "app": {
     "title": "Octopus Release Promoter",
     "entrance": "content:readme",
