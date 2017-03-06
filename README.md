@@ -80,8 +80,6 @@ const config = {
 
 const promoter = new OctopusReleasePromoter(config);
 
-// this will find the latest release on your project
-// and deploy it to the environment provided
 promoter.promoteRelease({
   environmentId: 'Environment-101',
   releaseId: 'Release-101'
