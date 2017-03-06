@@ -5,9 +5,6 @@ module.exports = {
     './gulpfile.js',
     './gulp/**/*.js',
   ],
-  dirs: {
-    docs: './docs'
-  },
   files: {
     tests: './test/*.spec.js'
   }
